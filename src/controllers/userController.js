@@ -41,13 +41,13 @@ exports.createUser = async function(req, res) {
 // PUT update user
 exports.updateUser = async (req, res) => {
   const { id } = req.params;
-  const { firstName, lastName, email, password } = req.body;
+  const { firs_tName, last_Name, email, password } = req.body;
   try {
     const user = await customer.findByPk(id);
     if (!user) {
       return res.status(404).json({ error: 'User not found' });
     }
-    await user.update({ firstName, lastName, email, password });
+    await user.update({ first_Name, last_Name, email, password });
     res.status(200).json(user);
   } catch (error) {
     res.status(400).json({ error: error.message });

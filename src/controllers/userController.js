@@ -27,8 +27,8 @@ exports.getUserById = async (req, res) => {
 
 // POST create user
 exports.createUser = async function(req, res) {
-  console.log("***")
   const { first_Name, last_Name, email, password } = req.body;
+ 
   try {
     const newUser = await customer.create({ first_Name, last_Name, email, password });
     res.status(201).json(newUser);
